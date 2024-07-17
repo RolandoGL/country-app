@@ -1,0 +1,64 @@
+<div class="container bg-image" *ngIf="country; else loading" [style]="{'background-image': 'url('+country.coatOfArms.svg+')'}">
+  <div class="row" style="gap: 5px;">
+    <div class="col-12">
+      <h2 class="fs-4">Country: {{ country.name.common }}</h2>
+      <h2 class="fs-4">Capital: {{ country.capital }}</h2>
+    </div>
+    <div class="col-4">
+      <img class="img-thumbnail" [src]="country.flags.svg" [alt]="country.flags.alt">
+    </div>
+    <div class="col-4">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-primary"><Strong>Information</Strong></li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Population: </strong>{{ country.population | number }}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Code: </strong>{{ country.cca3 }}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Region: </strong>{{ country.region }}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Subregion: </strong>{{ country.subregion }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <ul class="list-group list-group-horizontal flex-wrap justify-content-center" style="gap: 5px;">
+        <li class="list-group-item list-group-item-primary" style="width: 100%;"><Strong>Translations</Strong></li>
+        <li class="list-group-item  badge text-bg-primary">
+          {{ country.translations['spa'].common }}
+        </li>
+        <li class="list-group-item  badge text-bg-primary">
+          {{ country.translations['ara'].common }}
+        </li>
+        <li class="list-group-item  badge text-bg-primary">
+          {{ country.translations['bre'].common }}
+        </li>
+        <li class="list-group-item  badge text-bg-primary">
+          {{ country.translations['ces'].common }}
+        </li>
+        <li class="list-group-item  badge text-bg-primary">
+          {{ country.translations['fra'].common }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-5">
+      <ul class="list-group list-group-horizontal flex-wrap justify-content-center" style="gap: 5px;">
+        <li class="list-group-item list-group-item-primary" style="width: 100%;"><Strong>Borders</Strong></li>
+        <li class="list-group-item  badge text-bg-primary" *ngFor="let border of country.borders">
+          {{ border }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- <div>
+  <img [src]="country?.coatOfArms?.svg" alt="">
+</div> -->
+<ng-template #loading>
+  <div class="alert alert-info">
+    Loading data...
+  </div>
+</ng-template>

@@ -1,0 +1,15 @@
+<h2>By Country</h2>
+<hr>
+<div class="row">
+  <div class="col">
+    <shared-seach-box
+     [initialValue]="initialValue"
+     [label]="'By Country'" (onDebounce)="searchCountry($event)"></shared-seach-box>
+  </div>
+  <div class="row">
+    <div class="col">
+      <shared-loading *ngIf="isLoading"></shared-loading>
+      <countries-table [countries]="countries"></countries-table>
+    </div>
+  </div>
+</div>

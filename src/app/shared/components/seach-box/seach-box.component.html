@@ -1,0 +1,9 @@
+<div class="form-floating mb-3">
+  <input [placeholder]="label" type="text"
+    class="form-control" id="floatingInput"
+    [value]="initialValue"
+    #textInput
+    (keyup)="onKeyPress(textInput.value)"
+    >
+  <label for="floatingInput" style="background-color: transparent;">{{ label }}</label>
+</div>

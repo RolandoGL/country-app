@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.bg-image{
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top 0px right 200px;
+}
